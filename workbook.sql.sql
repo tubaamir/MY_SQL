@@ -1,21 +1,36 @@
+/*
+This file gives you the basic of SQL Statements
+*/
+
 USE mydb;
+
 
 /* ============================================================================ */
 /* SECTION 1: SELECT statements                                                 */
 /* ============================================================================ */
--- SELECT * FROM us_state
--- SELECT * FROM us_state WHERE name = 'California'
--- SELECT name, capital FROM us_state WHERE name = 'California'
--- SELECT * FROM us_state where area_size <= 10000
 
+
+-- This will return all the columns from table
+ SELECT * FROM us_state
+
+-- This will gives all the coluns from table where name is california
+ SELECT * FROM us_state WHERE name = 'California'
+
+-- This will return all columns with namw and capital where name is california
+ SELECT name, capital FROM us_state WHERE name = 'California'
+
+-- This will return all columns from a table where area size is greater than 20000
+ SELECT * FROM us_state where area_size <= 10000
+
+
+
+   
 /* ---- TASK 1 ---------------------------------------------------------------- */
 /* Write an SQL statement to find out what is the state capital of Oregon       */
 /* hint: the names of the columns you need are: name and capital                */
 /* ---------------------------------------------------------------------------- */
 
--- SELECT name, capital FROM us_state WHERE name = 'Oregon'
-
-
+ SELECT name, capital FROM us_state WHERE name = 'Oregon'
 
 
 
@@ -23,10 +38,17 @@ USE mydb;
 /* SECTION 2: SELECT statements with pattern matching and sorting               */
 /* ============================================================================ */
 
--- SELECT * FROM us_state ORDER BY area_size 
--- SELECT * FROM us_state ORDER BY area_size DESC
--- SELECT * FROM us_state WHERE name LIKE "M%"
--- SELECT * FROM us_state WHERE name LIKE "M%" ORDER BY name
+-- This will return all columns from table and sort them by area size
+ SELECT * FROM us_state ORDER BY area_size 
+
+-- This will return all columns from table and sort them by descendingw in  area size 
+ SELECT * FROM us_state ORDER BY area_size DESC
+
+-- This will return all columns from table whose name star with M
+ SELECT * FROM us_state WHERE name LIKE "M%"
+
+-- This will return all columns from a table whose name start with M and sort them alphabetically by names
+ SELECT * FROM us_state WHERE name LIKE "M%" ORDER BY name
 
 
 /* ---- TASK 2 ---------------------------------------------------------------- */
@@ -34,19 +56,20 @@ USE mydb;
 /* start with the letter "N", sort your results by state capital                */
 /* ---------------------------------------------------------------------------- */
 
--- SELECT * FROM us_state WHERE abbreviation LIKE "N%" ORDER BY name 
+ SELECT * FROM us_state WHERE abbreviation LIKE "N%" ORDER BY name 
 
 
+   
 /* ============================================================================ */
 /* SECTION 3: INSERT statements                                                 */
 /* ============================================================================ */
 
-/*
+
 INSERT INTO club_member
 SET first_name = 'Marrison',
 last_name  = 'Kong',
 phone_number = '0club_member86543212'
-*/
+
 
 
 
@@ -57,23 +80,23 @@ phone_number = '0club_member86543212'
 /* set first_name to "John", last_name to "Doe"                                 */
 /* and phone_number to "9998887777"                                             */
 /* ---------------------------------------------------------------------------- */
-/*
+
 INSERT INTO club_member
 SET first_name = "John",
 last_name = "Doe",
 phone_number = "9998887777"
-*/
+
 
 
 /* ============================================================================ */
 /* SECTION 4: DELETE statements                                                 */
 /* ============================================================================ */
 
-/*
+
 DELETE FROM club_member 
 WHERE first_name = "Marrison" 
 AND last_name = "Kong" 
-*/
+
 
 
 /* ---- TASK 4 ---------------------------------------------------------------- */
@@ -82,21 +105,21 @@ AND last_name = "Kong"
 /* if the phone_number is "9998887777"                                          */  
 /* ---------------------------------------------------------------------------- */
 
-/*
+
 DELETE FROM club_member
 WHERE phone_number = "9998887777"
-*?
+
 
 /* ============================================================================ */
 /* SECTION 5: Joining tables                                                    */
 /* ============================================================================ */
 
-/*
+
 SELECT club_member.member_id, first_name, last_name, 
 description, amount, due_date
 FROM club_member. invoice
 WHERE club_member.member_id = invoice.member_id
-*/
+
 
 /* ---- TASK 5 ---------------------------------------------------------------- */
 /* Using the above example as a guide,                                          */
@@ -120,10 +143,6 @@ professional_title, tier.description
 FROM club_member, tier
 WHERE club_member.tier_code = tier.code
 ORDER BY last_name
-
-
-
-
 
 
 
